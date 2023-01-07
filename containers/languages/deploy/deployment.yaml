@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: languages-deployment
+  annotations:
+    version: 1.0.0
+spec:
+  progressDeadlineSeconds: 600
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: languages
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: languages
+    spec:
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: languages
+          image: "languages:1.0.0"
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: PORT
+              value: "8080"
+            - name: ERROR_FREQUENCY
+              value: "500"
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 300m
+              memory: 1G
+            requests:
+              cpu: 200m
+              memory: 500M

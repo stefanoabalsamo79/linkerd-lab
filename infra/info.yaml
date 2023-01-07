@@ -1,0 +1,35 @@
+defaultClusterName: kind
+clusterName: test-cluster
+namespace: test
+linkerdNamespace: linkerd
+linkerdVizNamespace: linkerd-viz
+
+app:
+  countries:
+    name: countries 
+    version: 1.0.0
+    namespace: test
+  capitals:
+    name: capitals
+    version: 1.0.0
+    namespace: test
+  languages:
+    name: languages
+    version: 1.0.0
+    namespace: test
+  currencies:
+    name: currencies
+    version: 1.0.0
+    namespace: test
+  currenciesname:
+    name: currencies-name
+    version: 1.0.0
+    namespace: test
+  currenciescode:
+    name: currencies-code
+    version: 1.0.0
+    namespace: test
+  currenciessymbol:
+    name: currencies-symbol
+    version: 1.0.0
+    namespace: test

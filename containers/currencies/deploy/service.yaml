@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: currencies-service
+  labels:
+    app: currencies
+spec:
+  type: ClusterIP
+  selector:
+    app: currencies
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+    name: http
+  sessionAffinity: None

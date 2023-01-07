@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: capitals-service
+  labels:
+    app: capitals
+spec:
+  type: ClusterIP
+  selector:
+    app: capitals
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+    name: http
+  sessionAffinity: None
